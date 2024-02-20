@@ -1,0 +1,52 @@
+{% set name = "wapi-python" %}
+{% set version = "0.7.14" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: bcc4ff6d6e9dd11a2444dbafc0af0ef6b2890c1146a13562b24fd8ec74158e43
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - future >=0.16
+    - pandas >=0.21
+    - pip
+    - python
+    - pytz
+    - requests >=2.18
+    - sseclient-py >=1.7
+  run:
+    - future >=0.16
+    - pandas >=0.21
+    - python
+    - pytz
+    - requests >=2.18
+    - sseclient-py >=1.7
+
+test:
+  imports:
+    - wapi
+  requires:
+    - pytest
+    - pytest-cov >=2.5
+    - requests-mock >=1.3
+
+about:
+  home: "https://www.volueinsight.com"
+  license: UNKNOWN
+  license_family: OTHER
+  license_file: 
+  summary: "Volue Insight API python library"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
