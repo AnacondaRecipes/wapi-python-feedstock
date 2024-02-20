@@ -10,6 +10,7 @@ source:
   sha256: bcc4ff6d6e9dd11a2444dbafc0af0ef6b2890c1146a13562b24fd8ec74158e43
 
 build:
+  noarch: python
   number: 0
   script: "{{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv"
 
@@ -48,5 +49,8 @@ about:
   dev_url: 
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/46266
+    reason: Client request
   recipe-maintainers:
-    - your-github-id-here
+    - ianaobi
